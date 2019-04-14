@@ -1,0 +1,27 @@
+{
+  "name": "StormCAP",
+  "version": "1.0.0",
+  "description": "Easier Captchas Tool",
+  "main": "./main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "Stormcop, LLC",
+  "license": "MIT",
+  "devDependencies": {
+    "asar": "^0.14.3",
+    "electron": "^3.0.0"
+  },
+  "dependencies": {
+    "electron": "^3.0.0",
+    "electron_json_storage": "^4.1.6",
+    "electron_packager": "^13.1.1",
+    "electron_squirrel_startup": "^1.0.0",
+    "electron_winstaller": "^3.0.4",
+    "g": "^2.0.1",
+    "perfect_scrollbar": "^1.4.0",
+    "puppeteer": "^1.11.0",
+    "random_words": "^1.1.0",
+    "xmlhttprequest": "^1.8.0"
+  }
+}

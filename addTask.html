@@ -1,0 +1,50 @@
+<!--doc html-->
+<html style="">
+
+	<head>
+		<title>StormCaptcha</title>
+		<link rel="stylesheet" href="css/stylesheet.css">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+		<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+		<script type="text/javascript" src="./dist/auth.js"></script>
+	</head>
+
+	<video autoplay="" muted="" loop="" id="myVideo" style="
+	    position: fixed;
+	    right: 0;
+	    bottom: 0;
+	    height: 236px;
+	    top:12px;
+	">
+	  <source src="images/bkg5.mp4" type="video/mp4">
+	</video>
+
+	<body style="text-align: left;margin: 0;color: white;overflow: hidden;">
+	<div style="
+    width: 298px;
+    height: 236px;
+    border: 1px white solid;
+    position: absolute;
+    margin-top: 12px;
+">
+	    <div id="meat" style="-webkit-user-select: none;-webkit-app-region: drag;position: absolute;width:100%;height:30px;border-radius: 0;text-align: center;">
+	    	<div class="quickstart-user-details-container" style="margin-top: 75px;overflow:initial;opacity: 1;"><div id="message" style="
+    position: absolute;
+    top: 30px;
+    text-align: center;
+    left: 50;
+    width: 200px;
+    padding: auto;
+"></div><div><input id="username" placeholder="username" style="width: 200px;margin-bottom: 10px;"></div><div><input id="password" placeholder="password" type="password" style="width: 200px">
+	    		<div style="margin-bottom: 6px;margin-top: 6px;"><a id="resetPassword" style="text-decoration: underline;font-size: 13px;">Create/Reset password</a></div>
+	    	</div><button class="w3-bar-item w3-button" id="quickstart-button">Sign-in</button></div>
+	    </div>
+	 </div>
+	    <div id="minquit">
+	    	<button id="min" type="button" onclick="remote.BrowserWindow.getFocusedWindow().minimize()" style="padding-right: 3px;"><img src="images/min_button.png" style="width: 25px;height: 25px;"></button><button id="quit" type="button" onclick="window.close()"><img src="images/exit_button.png" style="width: 25px;height: 25px;"></button>
+	    </div>
+
+	</body>
+<script type="text/javascript">const remote = require('electron').remote</script>
+</html>
+

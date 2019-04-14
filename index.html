@@ -1,0 +1,269 @@
+<!--doc html-->
+<html>
+
+	<head>
+		<title>StormCaptcha</title>
+		<script src="dist/jquery.min.js"></script>
+		<link rel="stylesheet" href="css/stylesheet.css">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+		<link rel="stylesheet" type="text/css" href="css/taskTable.css"/>
+
+		<link rel="stylesheet" href="css/perfect-scrollbar.css">
+		<script src="dist/perfect-scrollbar.js"></script>
+		<script type="text/javascript" src="dist/datatables.min.js"></script>
+		<script src="dist/instances.js"></script>
+		<script src="dist/profiles.js"></script>
+		<script type="text/javascript" src="dist/addinstance.js"></script>
+		<script type="text/javascript">
+			
+			
+			$(document).ready(function() {
+    $('#instances').DataTable( {
+        "scrollY":        "439px",
+        "scrollCollapse": true,
+        "paging":         false,
+        "columns": [
+		    { "width": "20%" },
+		    { "width": "20%" },
+		    { "width": "20%" },
+		    { "width": "20%" },
+		    { "width": "20%" }
+		  ]
+    } );
+		    var table = $('#instances').DataTable();
+		 
+			$('#instances tbody').on( 'click', '.Remove', function () {
+		   		 table
+		        .row( $(this).parents('tr') )
+		        .remove()
+		        .draw();
+			} );
+			} );
+
+		</script>
+		<script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script>
+
+	</head>
+
+	<body id="versionTitle" style="text-align: left;margin: 0;">
+	    <div style="height: 12px"></div>
+	    <div style="
+		    position: absolute;
+		    z-index: 9999;
+		    color: white;
+		    top: 80px;
+		    left: 592px;
+		">V1.0.0</div>
+	   <div id="backgroundDIV" style="background-image: url('images/background_OG.png');background-size: 100%;height: 643px;background-position-y: -16px;">
+
+	    <div id="Top" style="-webkit-user-select: none;-webkit-app-region: drag;position: relative;">
+	    	<img src="images/logo1.png">
+	    </div>
+	    <div id="minquit">
+
+	    	<button id="deactivate" type="button" onclick="deactivate()" style="padding-right: 3px;"><img title="Deactivate" src="images/deactivate_button.png" style="width: 25px;height: 25px;"></button>
+
+	    	<button id="min" type="button" onclick="remote.BrowserWindow.getFocusedWindow().minimize()" style="padding-right: 3px;"><img src="images/min_button.png" style="width: 25px;height: 25px;" title="Minimuze"></button><button id="quit" type="button" onclick="window.close()"><img src="images/exit_button.png" title="Quit" style="width: 25px;height: 25px;"></button>
+	    </div>
+	    
+	   
+
+	    <div id="meat" style="height:477.37px;overflow: hidden;">
+		    <div id="taskPage" style="height: auto;opacity: 1;">
+		    	<font size="2" face="open-sans" >
+		    			<table id="instances" class="display" cellspacing="0" width="95%">
+					        <thead style="color: white;">
+					            <tr>
+					            	<th>ID</th>
+					                <th>Email</th>
+					                <th>Proxy</th>
+					                <th>Status</th>
+					                <th>Actions</th>
+					            </tr>
+					        </thead>
+					        <tfoot style="display: none;">
+					            <tr>
+					            	<th>ID</th>
+					                <th>Email</th>
+					                <th>Proxy</th>
+					                <th>Status</th>
+					                <th>Actions</th>
+					            </tr>
+					        </tfoot>
+
+					        <tbody id="bodyInstances" style="text-align: center">
+						
+							<div class="TaskGen"></div>
+
+					        </tbody>
+
+						</table>
+						</font>
+		    </div>
+
+		    <div id="targets" style="text-align: center; box-shadow: 0 0 2px #79C5E0;">
+		    	<div style="position: absolute;margin-left: -295px;margin-top: -170px;width: 1000;height: 620;z-index: 10000">
+		    	</div>
+		    	<div style="position: relative;z-index: 10001">
+			    	<div class="notEdit" style="margin-top: 65px;">
+			    		<div style="margin-bottom: 10px;font-size: 16px;">Email:</div>
+			    		<input type="email" name="email" id="email" style="text-align: center;font-size: 16px;" placeholder="example@gmail.com">
+			    	</div>
+			    	<div class="notEdit">
+			    		<div style="margin-bottom: 10px;margin-top: 10px;font-size: 16px;font-family: serif;">Password:</div>
+			    		<input type="text" name="password" id="pass" style="text-align: center;font-size: 16px" placeholder="Required for Auto Login">
+			    	</div>
+			    	<div id="proxyWin">
+			    		<div style="margin-bottom: 10px;margin-top: 10px;font-size: 16px;font-family: serif;">Proxy:</div>
+			    		<input id="proxy" style="text-align: center;font-size: 16px;font-family:serif;" placeholder="IP:PORT:USER:PASS">
+			    	</div>
+			    	<div class="notEdit">
+			    		<div style="height: 35px;margin-top: 10px;font-size: 16px;">Status:</div>
+			    		<div style="margin-bottom: 10px;"><span id="loginStatus" style="text-align: center;font-size: 16px;font-family: serif;">Idle</span></div>
+			    	</div>
+			    	<div id="targetButtons">
+					    <div><button id="cancel" style="width: 225px;margin-left:50px" onclick="$(function() {
+								    var tar = $('#targets');
+								    tar.fadeOut().animate({top: 0}, {duration: 'slow', queue: false}, function() {
+								        //Animation complete.
+								    });
+								});">Cancel</button></div>
+
+						<div style="margin-left: 135px;"><button id="editTask" style="width: 225px;">Confirm</button></div>
+					    <div><button id="loginAuto" style="width: 225px; margin-left: 30px;">Auto Login</button></div>
+					   	<div><button id="loginManual" style="width: 225px;margin-right:50px">Manual Login</button></div>
+			    	</div>
+			    	
+			    </div>
+
+
+		    </div>
+
+	    </div>
+
+	    
+	    <div id="fortasks"> 
+	    <div id="tasksbar" style="width:100%; "><button id="clearTasks" onclick="removeAllTasks()" style="margin-right: 310px"><img src="images/deleteAll_button.png" style="width: 14px;height: 14px;margin: auto;"><div style="float: right;margin-left: 3px;">Clear</div></button><button id="startTasks" onclick="runAllTasks()"><img src="images/startAll_button.png" style="width: 14px;height: 14px;margin: auto;"><div style="float: right;margin-left: 3px;">Start</div></button><button id="stopTasks" onclick="stopAllTasks()" style="margin-right: 310px"><img src="images/stopAll_button.png" style="width: 14px;height: 14px;margin: auto;"><div style="float: right;margin-left: 3px;">Stop</div></button><button id="openCaptcha" onclick="showAdd()" style="margin-right: 30px;"><img src="images/addTask_button.png" style="width: 14px;height: 14px;margin: auto;"><div style="float: right;margin-left: 3px;">Add</div></button></div>
+
+	    
+	    </div>
+
+
+	    </div>
+
+	    </div>
+	</body>
+<footer>
+
+		<script type="text/javascript">
+
+			var editProduct = function(ta){
+			  $('#proxy').val(proxies[taskNum.indexOf(ta)])
+			  document.getElementById("editTask").onclick = function() { addIn(ta,cookies[taskNum.indexOf(ta)]); }
+
+			  document.getElementById('targets').style.height = '250px';
+
+			  document.getElementById('loginAuto').style.display = 'none';
+			  document.getElementById('loginManual').style.display = 'none';
+			  document.getElementById('editTask').style.display = 'block';
+
+			  document.getElementsByClassName('notEdit')[0].style.display = 'none';
+			  document.getElementsByClassName('notEdit')[1].style.display = 'none';
+			  document.getElementsByClassName('notEdit')[2].style.display = 'none';
+
+			  $('#proxyWin').css("margin-top","60px")
+
+			  $('#cancel').css("margin-left","170px")
+
+
+			  var tar = $('#targets');
+			  tar.fadeIn().animate({top: $(window).height()/2 - tar.outerHeight()/2}, {duration: 'slow', queue: false}, function() {
+			              //Animation complete.
+			          });
+			}
+
+			function showAdd() {
+
+				document.getElementById("loginStatus").innerHTML = "Idle";
+
+				$('#email').val('')
+				$('#pass').val('')
+				$('#proxy').val('')
+				$('#loginStatus').val('Idle')
+
+				$('#proxyWin').css("margin-top","0px")
+
+				$('#cancel').css("margin-left","50px")
+
+				document.getElementById('targets').style.height = '450px';
+
+				document.getElementById('editTask').style.display = 'none';
+				document.getElementById('loginAuto').style.display = 'block';
+			  	document.getElementById('loginManual').style.display = 'block';
+
+			  	document.getElementsByClassName('notEdit')[0].style.display = 'block';
+				document.getElementsByClassName('notEdit')[1].style.display = 'block';
+				document.getElementsByClassName('notEdit')[2].style.display = 'block';
+
+				document.getElementById("loginAuto").onclick = function() { loginAuto(); }
+				document.getElementById("loginManual").onclick = function() { loginManual(); }
+			    var tar = $('#targets');
+			    tar.fadeIn().animate({top: $(window).height()/2 - tar.outerHeight()/2}, {duration: 'slow', queue: false}, function() {
+			        //Animation complete.
+			    });
+			}
+
+			$(function() {
+			  $('div#taskbar > div > button').hover(function() {
+			    $(this).css('background', 'rgba(21, 38, 66, 0.54)');
+			  }, function() {
+			    // on mouseout, reset the background colour
+
+			    $(this).css('background', '');
+			  });
+			});
+
+			$("div#taskbar > div > button").click(function(){
+				$("div#taskbar > div > button").removeClass( "taskBarBackground" );
+			    $(this).addClass( "taskBarBackground" );
+			});
+
+						
+			$(document).on('click', function (e) {
+				$(".statusclicked").removeClass("statusclicked");
+				$(".productclicked").removeClass("productclicked")
+
+				$('.products').scrollLeft(0)
+				$('.status').scrollLeft(0)
+			});
+
+			function stopTask(ID){
+				var el = document.querySelector('#actions'+ID+' .stopTask');
+
+				var newEl = document.createElement('a');
+				newEl.innerHTML = '<a class="startTask" onclick="runs[taskNum.indexOf('+ID+')] = true;main('+ID+')"" style="margin-right:8px;"><img src="images/startTask_button.png" style="width: 9px;height: 12px;margin: auto;"></a>';
+
+				// replace el with newEL
+				el.parentNode.replaceChild(newEl, el);
+
+				document.getElementById("results"+ID).innerHTML = "Stopped";
+			}
+		</script>
+		<script type="text/javascript">const remote = require('electron').remote;</script>
+		<script type="text/javascript" src="dist/meat.js"></script>
+		<script type="text/javascript">
+				setTimeout(function(){ checkIfTableLoaded() }, 100);
+			function checkIfTableLoaded(){
+				if($('.dataTables_scrollBody').length > -1){
+					const container = document.querySelector('.dataTables_scrollBody');
+					const ps = new PerfectScrollbar(container);
+				}else{
+					setTimeout(function(){ checkIfTableLoaded() }, 10);
+				}
+			}
+		</script>
+</footer>
+</html>
+
+</html>
+
