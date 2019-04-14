@@ -1,0 +1,445 @@
+button {
+    -webkit-app-region: no-drag;
+    -webkit-user-select: none;
+  }
+
+i{
+    color: #1262d2;
+}
+
+div#taskbar{
+        width: 720px;
+        height: 115px;
+    position: relative;
+    float: right;
+}
+
+div#taskbar > div {
+    /*width: 100%;*/
+    float: left;
+}
+div#taskbar > div > button > div{
+    margin-top: 4px;
+}
+div#taskbar > div > button {
+    font-family: open-sans;
+    font-size: 13px;
+    width: 69px;
+    height: 69px;
+    border-radius: 40px;
+    background: none;
+    /* margin-left: 20px; */
+    margin-top: 20px;
+    color: #79C5E0;
+    padding: 0;
+    border-width: 0;
+}
+
+div#taskbar > div > button.taskBarBackground {
+    background: #152642;
+}
+
+
+div#Top {
+    /*border-radius: 20px 20px 0px 0px;*/
+    /*border-bottom: 1px solid white;*/
+    /*background: black;*/
+    /*text-align: center;*/
+}
+
+
+div#top img {
+    width: 280px;
+    margin-top: 27px;
+    margin-left: 360px;
+    margin-bottom: 27px;
+
+}
+
+div#minquit {
+    position: absolute;
+    z-index: 9999;
+    right: 10px;
+    top: 0px;
+}
+
+div#minquit > button {
+    background:none;
+    color:white;
+    border:none;
+    font-size:25px;
+}
+
+div#tasksbar{
+    text-align: right;
+    height:58.15px;
+    background-image: url("barTasks.png");
+    background-size:100%; 
+    position:absolute;
+    bottom:0;
+    z-index: 9999;
+}
+
+div#tasksbar > button, div#settings > div > button{
+    margin-left: 10px;
+    /* height: 56.15px; */
+    background: none;
+    color: white;
+    padding: 0;
+    border-width: 0;
+    font-family: open-sans;
+    background: linear-gradient(to right, rgb(3, 6, 14), rgb(7, 18, 28));
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-right: 15px;
+    padding-left: 15px;
+    border-radius: 20px;
+    outline: none;
+    /* border: 1px solid #0f242b; */
+    margin-top: 14px;
+    box-shadow: 0 0 5px #79C5E0;
+    /*width: 160px;*/
+}
+
+#Settings > div > button:hover {
+    background: #000000;
+}
+
+#addTasks{
+    width: 20%
+}
+
+div#TaskStore > div {
+    text-align: center;
+
+}
+div#TaskStore > div > button {
+    border: 1px #0f222b solid;
+    width: 200px;
+    height: 200px;
+    border-radius: 100px;
+    padding: 10px;
+    margin-bottom: 10px;
+    font-size: 15px;
+    font-family: inherit;
+    color: white;
+    margin-top: 35px;
+    background: linear-gradient(to right, rgb(3, 6, 14), rgb(13, 46, 75));
+}
+
+.barTitle{
+    color: white;
+    position: absolute;
+    top: 6px;
+    left: 400;
+    -webkit-user-select: none;
+}
+
+#back{ 
+    position: absolute;
+    top: 8;
+    left: 1;
+}
+
+#back > button{
+    background: none;
+    border:none;
+} 
+#back > button > i{
+    color:white;
+} 
+
+/* Data Tables CSS */
+div#instances_length, div#instances_filter, div#instances_info, div#instances_paginate{
+    display:none;
+}
+
+#meat{
+    width:95%;
+    margin: auto;
+   /* background: #121212;*/
+    /*float: left;*/
+   /* padding-right: 3%;*/
+}
+
+#addTask{
+    display: block;
+    background: url("addTasks_container.png");
+    background-size: 101%;
+    height: 480px;
+    width: 96%;
+    margin: auto;
+    margin-top: 28px;
+    border-radius: 60px;
+    border: 1px solid rgb(45, 72, 89);
+}
+
+div#TaskStore > div {
+    width: 288px;
+    height: 255px;
+    float: left;
+}
+
+span.barTitle::after {
+    width: 856px;
+    height: 1px;
+    background: #2b4b60;
+    content: " ";
+    position: absolute;
+    bottom: 0;
+    left: -396px;
+}
+
+
+
+/* Profiles Styling */ 
+div#Profiles {
+    margin-top: 52px;
+    text-align: center;
+}
+
+#profileSelect {
+    right: 405px;
+    top: 130px;
+    position: absolute;
+    background: #03070f;
+    width: 150px;
+    margin: auto;
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #609eba;
+    border-radius: 20px;
+}
+
+#billingSelect {
+    float: left;
+    width: 30%;
+    margin-left: 2%;
+    /* padding-left: 20%; */
+    padding: 27.5px;
+    padding-left: 10%;
+    padding-right: 8%;
+    border-radius: 20px 0px 0px 20px;
+    background: rgba(1, 1, 3, 0.46);
+    border: 1px solid #5b95b0;
+    border-right: 0;
+}
+
+#CCSelect {
+    float: left;
+    width: 30%;
+    height: 425px;
+    padding: 11px;
+    padding-left: 8%;
+    padding-right: 10%;
+    /* position: absolute; */
+    border-radius: 0px 20px 20px 0px;
+    /* top: 166px; */
+    /* float: left; */
+    border: 1px solid #568da7;
+    background: rgba(1, 1, 3, 0.46);
+    /* right: 95px; */
+    border-left: none;
+}
+
+#forprofiles{
+    position: absolute;
+    bottom: 12px;
+    right: 65px;
+    text-align: center;
+}
+
+div#profilebar > button{
+    width: 115px;
+    height: 45px;
+    background: none;
+    border: none;
+    color: white;
+    font-family: open-sans;
+}
+
+div#profilebar {
+        width: 100%;
+    padding-right: 10px;
+    padding-left: 10px;
+    border-radius: 20px;
+    border: 1px solid #5b95b0;
+    background: #03070f;
+}
+
+
+
+
+#forprofiles, #fortasks, #forproxies, #forsettings{
+    transition: opacity 0.25s ease-out;
+}
+
+
+.status::-webkit-scrollbar, .products::-webkit-scrollbar {
+    width: 0px;
+    height:0px;
+    background: transparent; /* make scrollbar transparent */
+}
+
+.status, .products{
+    margin:auto;
+    height: 18px;
+    max-width:118px;
+    white-space:nowrap; 
+    overflow:hidden;
+    overflow-x:scroll;
+    text-overflow:ellipsis
+}
+
+.products{
+    max-width:136px;
+}
+.status.statusclicked, .products.productclicked{
+    text-overflow: initial;
+}
+
+/*checkbox Style*/
+.container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 11px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default checkbox */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+/* Create a custom checkbox */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 40px;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #050f19;
+}
+
+/* When the checkbox is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #06111b;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.container .checkmark:after {
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+
+/*ADD TASKS PG*/
+ select,  input {
+    color:#71b8d3;
+    background:linear-gradient(to right, rgb(3, 6, 14), rgb(7, 18, 28));
+    width: 500px;
+    height: 35px;
+    border:1px solid #0f192d;
+    box-shadow: 0 0 10px #0f192d;
+    padding-left:4px;
+    padding-right:4px;
+}
+
+ select:focus, input:focus { 
+    outline: none;
+    border-color: #9ecaed;
+    box-shadow: 0 0 10px #9ecaed;
+}
+
+ select:disabled,  input:disabled{
+    color:#03060e;
+    background:#03060e;
+    border:1px solid #070f1d;
+    box-shadow: 0 0 10px #03060e;
+}
+
+.container input ~ .checkmark{
+    background:linear-gradient(to right, rgb(3, 6, 14), rgb(7, 18, 28));
+    border:1px solid #0f192d;
+    box-shadow: 0 0 3px #0f192d;
+}
+
+select::placeholder, input::placeholder{
+    color:rgb(36, 65, 77);
+}
+
+#quickstart-button{
+
+    /* height: 56.15px; */
+    background: none;
+    color: white;
+    padding: 0;
+    border-width: 0;
+    font-family: open-sans;
+    background: linear-gradient(to right, rgb(3, 6, 14), rgb(7, 18, 28));
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-right: 15px;
+    padding-left: 15px;
+    border-radius: 20px;
+    outline: none;
+    /* border: 1px solid #0f242b; */
+    box-shadow: 0 0 5px #79C5E0;
+    /* width: 160px; */
+}
+
+
+
+/* ensure no text highlighting */
+
+th, #minquit, #versionTitle {
+  -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+     -khtml-user-select: none; /* Konqueror HTML */
+       -moz-user-select: none; /* Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                  supported by Chrome and Opera */
+}
+
+
+
+.datatable td {
+  overflow: hidden; /* this is what fixes the expansion */
+  text-overflow: ellipsis; /* not supported in all browsers, but I accepted the tradeoff */
+  white-space: nowrap;
+}
